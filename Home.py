@@ -9,7 +9,7 @@ st.set_page_config(
 # Centered Title using HTML and Markdown
 st.markdown(
     """
-    <h2 style = "text-align: center; color: #DECAAF;">Goodreads: Analysis of Reading Habits</h2>
+    <h2 style = "text-align: center; color: #69503c;">Goodreads: Analysis of Reading Habits</h2>
     """,
     unsafe_allow_html = True,
 )
@@ -17,7 +17,7 @@ st.markdown(
 # Subtitle with styling
 st.markdown(
     """
-    <h3 style = "text-align: center; color: #D6AAFF; font-family: Arial, sans-serif;">
+    <h3 style = "text-align: center; color: #1c2d8f; font-family: Arial, sans-serif;">
     Discover insights about your reading habits, favorite authors, and much more!
     </h3>
     """,

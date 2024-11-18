@@ -9,7 +9,7 @@ st.set_page_config(page_title = "Ratings",
 # Title and description
 st.markdown(
     """
-    <h2 style = "text-align: center; color: #DECAAF;">Ratings Analysis</h2>
+    <h2 style = "text-align: center; color: #69503c;">Ratings Analysis</h2>
     """,
     unsafe_allow_html = True,
 )
@@ -42,7 +42,7 @@ if "user_data" in st.session_state:
         title = "Distribution of My Ratings",
         nbins = 5,
         labels = {"My Rating": "My Rating (Stars)"},
-        color_discrete_sequence = ["#FFA07A"]
+        color_discrete_sequence = ["#7ab0a1"]
     )
     fig_my_rating.update_layout(
         yaxis = dict(title = "Number of Books"),
@@ -55,7 +55,7 @@ if "user_data" in st.session_state:
         title = "Distribution of Goodreads Average Ratings",
         nbins = 10,
         labels = {"Average Rating": "Average Rating (Stars)"},
-        color_discrete_sequence = ["#87CEEB"]
+        color_discrete_sequence = ["#282c63"]
     )
     fig_avg_rating.update_layout(
         yaxis = dict(title = "Number of Books")

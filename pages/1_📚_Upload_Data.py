@@ -7,8 +7,8 @@ st.set_page_config(page_title = "Upload Data",
 # Title and description
 st.markdown(
     """
-    <h2 style = "text-align: center; color: #DECAAF;">Upload Your Goodreads Data</h2>
-    <p style = "text-align: center; font-size: 18px; color: #D6AAFF;">
+    <h2 style = "text-align: center; color: #69503c;">Upload Your Goodreads Data</h2>
+    <p style = "text-align: center; font-size: 18px; color: #1c2d8f;">
     Start by uploading your Goodreads CSV file to unlock insights about your reading habits.
     </p>
     """,

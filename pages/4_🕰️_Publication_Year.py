@@ -11,7 +11,7 @@ st.set_page_config(page_title = "Publication Year",
 # Title and description
 st.markdown(
     """
-    <h2 style = "text-align: center; color: #DECAAF;">Publication Year Analysis</h2>
+    <h2 style = "text-align: center; color: #69503c;">Publication Year Analysis</h2>
     """,
     unsafe_allow_html = True,
 )

@@ -11,7 +11,7 @@ st.set_page_config(page_title = "Time to Finish",
 # Title and description
 st.markdown(
     """
-    <h2 style = "text-align: center; color: #DECAAF;">Time to Finish Books</h2>
+    <h2 style = "text-align: center; color: #69503c;">Time to Finish Books</h2>
     """,
     unsafe_allow_html = True,
 )
@@ -46,7 +46,7 @@ if "user_data" in st.session_state:
         nbins = 20
     )
     # Set a uniform color for bins 
-    fig_days_finished.update_traces(marker_color = "#D6AAFF")
+    fig_days_finished.update_traces(marker_color = "#7d5abc")
 
     st.plotly_chart(fig_days_finished)
 

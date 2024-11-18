@@ -11,7 +11,7 @@ st.set_page_config(page_title = "Year Finished",
 # Title and description
 st.markdown(
     """
-    <h2 style = "text-align: center; color: #DECAAF;">Books Finished per Year</h2>
+    <h2 style = "text-align: center; color: #69503c;">Books Finished per Year</h2>
     """,
     unsafe_allow_html = True,
 )
