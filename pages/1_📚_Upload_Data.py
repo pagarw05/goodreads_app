@@ -7,8 +7,8 @@ st.set_page_config(page_title = "Upload Data",
 # Title and description
 st.markdown(
     """
-    <h2 style = "text-align: center; color: #69503c;">Upload Your Goodreads Data</h2>
-    <p style = "text-align: center; font-size: 18px; color: #1c2d8f;">
+    <h2 style="text-align: center; color: #69503c;">Upload Your Goodreads Data</h2>
+    <p style="text-align: center; font-size: 18px; color: #1c2d8f;">
     Start by uploading your Goodreads CSV file to unlock insights about your reading habits.
     </p>
     """,
@@ -27,11 +27,11 @@ with st.sidebar:
        - `Book Id`
        - `Exclusive Shelf`
        - `My Rating`
+       - `Number of Pages`
+       - `Author`
     3. Once uploaded, your data will be used across different analysis pages.
     """)
     st.info("📋 Tip: You can export your data from Goodreads under **Account Settings > Export Library**.")
-
-
 
 # Add an expander for upload instructions
 with st.expander("**How to export Goodreads data?** 📤"):
@@ -45,35 +45,55 @@ with st.expander("**How to export Goodreads data?** 📤"):
 # File uploader
 uploaded_file = st.file_uploader(
     "Upload your Goodreads CSV file below 👇",
-    help = "Ensure the file is in CSV format exported from Goodreads."
+    type=["csv"],
+    help="Ensure the file is in CSV format exported from Goodreads."
 )
 
-# Check if the file is uploaded
+# Check if a file is uploaded
 if uploaded_file is not None:
-    # Read and save the uploaded data into session state
+    # Read and store the uploaded data
     df = pd.read_csv(uploaded_file)
-    st.session_state["user_data"] = df
+    st.session_state["user_data"] = df  # Save data to session state
 
     # Display success message and preview
     st.success("File uploaded successfully!")
     st.write("Here's a preview of your data:")
-    st.dataframe(df.head(), use_container_width = True)
-    
+    st.dataframe(df.head(), use_container_width=True)
+
     # Calculate statistics
-    total_books = df['Book Id'].nunique()
-    rated_books = df[df['My Rating'] != 0].shape[0]
-    avg_pages = df['Number of Pages'].mean().round()
-    most_read_author = df['Author'].mode()[0]
-    
+    total_books = df["Book Id"].nunique()
+    rated_books = df[df["My Rating"] != 0].shape[0]
+    avg_pages = df["Number of Pages"].mean().round()
+    most_read_author = df["Author"].mode()[0]
+
     # Display quick summary
     st.markdown("### Quick Stats:")
     st.write(f"📚 **Total Books:** {total_books}")
     st.write(f"⭐ **Books Rated:** {rated_books}")
     st.write(f"📖 **Average Pages per Book:** {avg_pages}")
     st.write(f"👨‍💻 **Most Read Author:** {most_read_author}")
-    
+
+# Check if data already exists in session_state
+elif "user_data" in st.session_state:
+    st.info("Using previously uploaded data.")
+    df = st.session_state["user_data"]
+
+    # Display existing data preview
+    st.write("Here's a preview of your existing data:")
+    st.dataframe(df.head(), use_container_width=True)
+
+    # Recalculate and display stats for existing data
+    total_books = df["Book Id"].nunique()
+    rated_books = df[df["My Rating"] != 0].shape[0]
+    avg_pages = df["Number of Pages"].mean().round()
+    most_read_author = df["Author"].mode()[0]
+
+    st.markdown("### Quick Stats:")
+    st.write(f"📚 **Total Books:** {total_books}")
+    st.write(f"⭐ **Books Rated:** {rated_books}")
+    st.write(f"📖 **Average Pages per Book:** {avg_pages}")
+    st.write(f"👨‍💻 **Most Read Author:** {most_read_author}")
 else:
     st.warning("Please upload your Goodreads data to proceed.")
-
 
 
