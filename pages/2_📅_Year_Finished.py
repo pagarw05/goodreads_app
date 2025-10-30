@@ -34,7 +34,7 @@ if "user_data" in st.session_state:
     books_df = st.session_state["user_data"]
 
     # Year Finished
-    books_df["Year Finished"] = pd.to_datetime(books_df["Date Read"]).dt.year
+    books_df["Year Finished"] = pd.to_datetime(books_df["Date Read"], format = "%m/%d/%y").dt.year
     books_per_year = books_df.groupby("Year Finished")["Book Id"].count().reset_index()
     books_per_year.columns = ["Year Finished", "Count"]
 

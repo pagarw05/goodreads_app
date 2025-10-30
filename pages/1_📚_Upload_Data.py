@@ -58,7 +58,7 @@ if uploaded_file is not None:
     # Display success message and preview
     st.success("File uploaded successfully!")
     st.write("Here's a preview of your data:")
-    st.dataframe(df.head(), use_container_width=True)
+    st.dataframe(df.head(), width='stretch')
 
     # Calculate statistics
     total_books = df["Book Id"].nunique()
@@ -80,7 +80,7 @@ elif "user_data" in st.session_state:
 
     # Display existing data preview
     st.write("Here's a preview of your existing data:")
-    st.dataframe(df.head(), use_container_width=True)
+    st.dataframe(df.head(), width='stretch')
 
     # Recalculate and display stats for existing data
     total_books = df["Book Id"].nunique()

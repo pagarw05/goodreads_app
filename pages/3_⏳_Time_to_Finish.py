@@ -34,7 +34,7 @@ if "user_data" in st.session_state:
     books_df = st.session_state["user_data"]
 
     # Time Difference
-    books_df["days_to_finish"] = (pd.to_datetime(books_df["Date Read"]) - pd.to_datetime(books_df["Date Added"])).dt.days
+    books_df["days_to_finish"] = (pd.to_datetime(books_df["Date Read"], format = "%m/%d/%y") - pd.to_datetime(books_df["Date Added"], format = "%m/%d/%y")).dt.days
     books_finished_filtered = books_df[(books_df["Exclusive Shelf"] == "read") & (books_df["days_to_finish"] >= 0)]
 
     # Histogram using Plotly

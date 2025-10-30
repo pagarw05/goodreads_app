@@ -27,7 +27,7 @@ st.markdown(
 # Insert an image
 st.image("goodreads_image.jpg", 
          caption = "Uncover trends and patterns in your reading journey!", 
-         use_column_width = True)
+         width = 'stretch')
 
 # Sidebar navigation header
 with st.sidebar:
